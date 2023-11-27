@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		07F993662B0BF1970073E699 /* MancalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993652B0BF1970073E699 /* MancalaApp.swift */; };
-		07F993682B0BF1970073E699 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993672B0BF1970073E699 /* ContentView.swift */; };
+		07F993682B0BF1970073E699 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993672B0BF1970073E699 /* GameView.swift */; };
 		07F9936A2B0BF1980073E699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F993692B0BF1980073E699 /* Assets.xcassets */; };
 		07F9936D2B0BF1980073E699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F9936C2B0BF1980073E699 /* Preview Assets.xcassets */; };
 		07F993772B0BF1990073E699 /* MancalaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993762B0BF1990073E699 /* MancalaTests.swift */; };
 		07F993812B0BF1990073E699 /* MancalaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993802B0BF1990073E699 /* MancalaUITests.swift */; };
 		07F993832B0BF1990073E699 /* MancalaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993822B0BF1990073E699 /* MancalaUITestsLaunchTests.swift */; };
+		07F993922B127E720073E699 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993912B127E720073E699 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		07F993622B0BF1970073E699 /* Mancala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mancala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F993652B0BF1970073E699 /* MancalaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MancalaApp.swift; sourceTree = "<group>"; };
-		07F993672B0BF1970073E699 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		07F993672B0BF1970073E699 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		07F993692B0BF1980073E699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F9936C2B0BF1980073E699 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07F993722B0BF1990073E699 /* MancalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MancalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		07F9937C2B0BF1990073E699 /* MancalaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MancalaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F993802B0BF1990073E699 /* MancalaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MancalaUITests.swift; sourceTree = "<group>"; };
 		07F993822B0BF1990073E699 /* MancalaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MancalaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		07F993912B127E720073E699 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		07F993642B0BF1970073E699 /* Mancala */ = {
 			isa = PBXGroup;
 			children = (
+				07F993902B127E540073E699 /* Models */,
 				07F993652B0BF1970073E699 /* MancalaApp.swift */,
-				07F993672B0BF1970073E699 /* ContentView.swift */,
+				07F9938F2B127E2B0073E699 /* Views */,
 				07F993692B0BF1980073E699 /* Assets.xcassets */,
 				07F9936B2B0BF1980073E699 /* Preview Content */,
 			);
@@ -125,6 +128,22 @@
 				07F993822B0BF1990073E699 /* MancalaUITestsLaunchTests.swift */,
 			);
 			path = MancalaUITests;
+			sourceTree = "<group>";
+		};
+		07F9938F2B127E2B0073E699 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07F993672B0BF1970073E699 /* GameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07F993902B127E540073E699 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07F993912B127E720073E699 /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F993682B0BF1970073E699 /* ContentView.swift in Sources */,
+				07F993922B127E720073E699 /* Model.swift in Sources */,
+				07F993682B0BF1970073E699 /* GameView.swift in Sources */,
 				07F993662B0BF1970073E699 /* MancalaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
