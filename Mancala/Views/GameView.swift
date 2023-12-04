@@ -27,162 +27,168 @@ struct GameView: View {
     @State private var pit13 = MancalaGame.sampleGame.beads.get(position: 13)
     
     var body: some View {
-        HStack {
-            Text("\(pit7)")
+        VStack {
+            Text(game.isPlayerBTurn ? "Player B's Turn" : "Player A's Turn")
                 .font(.largeTitle)
-                .padding(30)
-                .background(Color.pit)
-            Spacer()
-            VStack {
-                Text("\(pit6)")
+                
+            HStack {
+                Text("\(pit7)")
                     .font(.largeTitle)
                     .padding(30)
                     .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 6) != 0) {
-                            game.pickupBeadsAt(pit: 6)
-                            updateView()
+                Spacer()
+                VStack {
+                    Text("\(pit6)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 6) != 0) {
+                                game.pickupBeadsAt(pit: 6)
+                                updateView()
+                            }
                         }
-                    }
-                Text("\(pit8)")
+                    Text("\(pit8)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 8) != 0) {
+                                game.pickupBeadsAt(pit: 8)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                VStack {
+                    Text("\(pit5)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 5) != 0) {
+                                game.pickupBeadsAt(pit: 5)
+                                updateView()
+                            }
+                        }
+                    Text("\(pit9)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 9) != 0) {
+                                game.pickupBeadsAt(pit: 9)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                VStack {
+                    Text("\(pit4)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 4) != 0) {
+                                game.pickupBeadsAt(pit: 4)
+                                updateView()
+                            }
+                        }
+                    Text("\(pit10)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 10) != 0) {
+                                game.pickupBeadsAt(pit: 10)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                VStack {
+                    Text("\(pit3)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 3) != 0) {
+                                game.pickupBeadsAt(pit: 3)
+                                updateView()
+                            }
+                        }
+                    Text("\(pit11)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 11) != 0) {
+                                game.pickupBeadsAt(pit: 11)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                VStack {
+                    Text("\(pit2)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 2) != 0) {
+                                game.pickupBeadsAt(pit: 2)
+                                updateView()
+                            }
+                        }
+                    Text("\(pit12)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 12) != 0) {
+                                game.pickupBeadsAt(pit: 12)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                VStack {
+                    Text("\(pit1)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 1) != 0) {
+                                game.pickupBeadsAt(pit: 1)
+                                updateView()
+                            }
+                        }
+                    Text("\(pit13)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(Color.pit)
+                        .onTapGesture {
+                            if (game.beads.get(position: 13) != 0) {
+                                game.pickupBeadsAt(pit: 13)
+                                updateView()
+                            }
+                        }
+                }
+                Spacer()
+                Text("\(game.beads.get(position: 0))")
                     .font(.largeTitle)
                     .padding(30)
                     .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 8) != 0) {
-                            game.pickupBeadsAt(pit: 8)
-                            updateView()
-                        }
-                    }
             }
-            Spacer()
-            VStack {
-                Text("\(pit5)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 5) != 0) {
-                            game.pickupBeadsAt(pit: 5)
-                            updateView()
-                        }
-                    }
-                Text("\(pit9)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 9) != 0) {
-                            game.pickupBeadsAt(pit: 9)
-                            updateView()
-                        }
-                    }
-            }
-            Spacer()
-            VStack {
-                Text("\(pit4)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 4) != 0) {
-                            game.pickupBeadsAt(pit: 4)
-                            updateView()
-                        }
-                    }
-                Text("\(pit10)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 10) != 0) {
-                            game.pickupBeadsAt(pit: 10)
-                            updateView()
-                        }
-                    }
-            }
-            Spacer()
-            VStack {
-                Text("\(pit3)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 3) != 0) {
-                            game.pickupBeadsAt(pit: 3)
-                            updateView()
-                        }
-                    }
-                Text("\(pit11)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 11) != 0) {
-                            game.pickupBeadsAt(pit: 11)
-                            updateView()
-                        }
-                    }
-            }
-            Spacer()
-            VStack {
-                Text("\(pit2)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 2) != 0) {
-                            game.pickupBeadsAt(pit: 2)
-                            updateView()
-                        }
-                    }
-                Text("\(pit12)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 12) != 0) {
-                            game.pickupBeadsAt(pit: 12)
-                            updateView()
-                        }
-                    }
-            }
-            Spacer()
-            VStack {
-                Text("\(pit1)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 1) != 0) {
-                            game.pickupBeadsAt(pit: 1)
-                            updateView()
-                        }
-                    }
-                Text("\(pit13)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(Color.pit)
-                    .onTapGesture {
-                        if (game.beads.get(position: 13) != 0) {
-                            game.pickupBeadsAt(pit: 13)
-                            updateView()
-                        }
-                    }
-            }
-            Spacer()
-            Text("\(game.beads.get(position: 0))")
-                .font(.largeTitle)
-                .padding(30)
-                .background(Color.pit)
+            .padding(10)
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity
+            )
         }
-        .padding(10)
-        .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            maxHeight: .infinity
-        )
+        .padding(20)
         .background(Color.board)
     }
     
