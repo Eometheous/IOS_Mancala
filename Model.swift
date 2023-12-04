@@ -20,7 +20,7 @@ class Model {
     }
     
     func update(position: Int, newValue: Int) {
-        dataList.insert(newValue, at: newValue)
+        dataList[position] = newValue
     }
     
     func get(position: Int) -> Int{
