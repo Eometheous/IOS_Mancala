@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MancalaApp: App {
+    var game = MancalaGame(model: Model(numberOfStartingBeads: 4))
+    
     var body: some Scene {
         WindowGroup {
-            GameView(model: Model.sampleData)
+            GameView(game: MancalaGame.sampleGame)
         }
     }
 }
