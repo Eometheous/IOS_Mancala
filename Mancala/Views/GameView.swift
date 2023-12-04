@@ -205,7 +205,5 @@ struct GameView: View {
 }
 
 #Preview {
-//    GameView(game: .constant(MancalaGame.sampleGame))
     GameView(game: MancalaGame.sampleGame)
-//    GameView(beadsModel: Model.sampleData, game: MancalaGame.sampleGame)
 }
