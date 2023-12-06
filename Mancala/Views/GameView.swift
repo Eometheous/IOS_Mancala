@@ -26,10 +26,13 @@ struct GameView: View {
     @State private var pit12 = MancalaGame.sampleGame.beads.get(position: 12)
     @State private var pit13 = MancalaGame.sampleGame.beads.get(position: 13)
     
+    @State private var selected = false
+    
     var body: some View {
         VStack {
-            Text(game.isPlayerBTurn ? "Player B's Turn" : "Player A's Turn")
+            Text(game.gameStatus())
                 .font(.largeTitle)
+                
                 
             HStack {
                 Text("\(pit7)")
@@ -180,6 +183,18 @@ struct GameView: View {
                     .padding(30)
                     .background(Color.pit)
             }
+            Spacer()
+            Picker (selection: $selected, label: Text("Who Goes First?")) {
+                Text("Player A First").tag(false).foregroundColor(.font)
+                Text("Player B First").tag(true).foregroundColor(.font)
+            }.foregroundColor(.font)
+                    
+            Button("Start New Game") {
+                game.isPlayerBTurn = selected
+                game.startNewGame()
+                updateView()
+            }
+            .foregroundColor(.font)
         }
         .frame(
             minWidth: 0,
