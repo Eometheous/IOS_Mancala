@@ -29,6 +29,8 @@ struct GameView: View {
     @State private var selectIfBGoesFirst = false
     @State private var selectStartingNumberOfBeads = 2
     
+    @State private var theme = Theme.defaultBoard
+    
     var body: some View {
         VStack {
             Text(game.gameStatus())
@@ -39,13 +41,13 @@ struct GameView: View {
                 Text("\(pit7)")
                     .font(.largeTitle)
                     .padding(30)
-                    .background(Color.pit)
+                    .background(theme.pitColor)
                 Spacer()
                 VStack {
                     Text("\(pit6)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 6) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 6)
@@ -55,7 +57,7 @@ struct GameView: View {
                     Text("\(pit8)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 8) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 8)
@@ -68,7 +70,7 @@ struct GameView: View {
                     Text("\(pit5)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 5) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 5)
@@ -78,7 +80,7 @@ struct GameView: View {
                     Text("\(pit9)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 9) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 9)
@@ -91,7 +93,7 @@ struct GameView: View {
                     Text("\(pit4)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 4) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 4)
@@ -101,7 +103,7 @@ struct GameView: View {
                     Text("\(pit10)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 10) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 10)
@@ -114,7 +116,7 @@ struct GameView: View {
                     Text("\(pit3)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 3) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 3)
@@ -124,7 +126,7 @@ struct GameView: View {
                     Text("\(pit11)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 11) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 11)
@@ -137,7 +139,7 @@ struct GameView: View {
                     Text("\(pit2)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 2) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 2)
@@ -147,7 +149,7 @@ struct GameView: View {
                     Text("\(pit12)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 12) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 12)
@@ -160,7 +162,7 @@ struct GameView: View {
                     Text("\(pit1)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 1) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 1)
@@ -170,7 +172,7 @@ struct GameView: View {
                     Text("\(pit13)")
                         .font(.largeTitle)
                         .padding(30)
-                        .background(Color.pit)
+                        .background(theme.pitColor)
                         .onTapGesture {
                             if (game.beads.get(position: 13) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 13)
@@ -182,27 +184,27 @@ struct GameView: View {
                 Text("\(game.beads.get(position: 0))")
                     .font(.largeTitle)
                     .padding(30)
-                    .background(Color.pit)
+                    .background(theme.pitColor)
             }
             Spacer()
             HStack {
                 Picker (selection: $selectIfBGoesFirst, label: Text("Who Goes First?")) {
                     Text("Player A First").tag(false)
                     Text("Player B First").tag(true)
-                }.tint(.font)
+                }.tint(theme.fontColor)
                 
                 Picker (selection: $selectStartingNumberOfBeads, label: Text("Starting Number of Beads")) {
                     Text("2").tag(2)
                     Text("3").tag(3)
                     Text("4").tag(4)
-                }.tint(.font)
+                }.tint(theme.fontColor)
                 
                 Button("Start New Game") {
                     game.isPlayerBTurn = selectIfBGoesFirst
                     game.startNewGame(numberOfStartingBeads: selectStartingNumberOfBeads)
                     updateView()
                 }
-                .foregroundStyle(Color.font)
+                .foregroundStyle(theme.fontColor)
             }
         }
         .frame(
@@ -212,8 +214,8 @@ struct GameView: View {
             maxHeight: .infinity
         )
         .padding(20)
-        .background(Color.board)
-        .foregroundStyle(Color.font)
+        .background(theme.boardColor)
+        .foregroundStyle(theme.fontColor)
     }
     
     func updateView() {

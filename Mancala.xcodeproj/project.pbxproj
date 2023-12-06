@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073E0D382B213ED10077B50A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E0D372B213ED10077B50A /* Theme.swift */; };
 		07F993662B0BF1970073E699 /* MancalaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993652B0BF1970073E699 /* MancalaApp.swift */; };
 		07F993682B0BF1970073E699 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F993672B0BF1970073E699 /* GameView.swift */; };
 		07F9936A2B0BF1980073E699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F993692B0BF1980073E699 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073E0D372B213ED10077B50A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		07F993622B0BF1970073E699 /* Mancala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mancala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F993652B0BF1970073E699 /* MancalaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MancalaApp.swift; sourceTree = "<group>"; };
 		07F993672B0BF1970073E699 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				07F993912B127E720073E699 /* Model.swift */,
 				07F993932B1511550073E699 /* MancalaGame.swift */,
+				073E0D372B213ED10077B50A /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				07F993922B127E720073E699 /* Model.swift in Sources */,
 				07F993682B0BF1970073E699 /* GameView.swift in Sources */,
+				073E0D382B213ED10077B50A /* Theme.swift in Sources */,
 				07F993662B0BF1970073E699 /* MancalaApp.swift in Sources */,
 				07F993942B1511550073E699 /* MancalaGame.swift in Sources */,
 			);
