@@ -12,9 +12,9 @@ class Model {
     
     init(numberOfStartingBeads: Int) {
         dataList = Array(repeating: 0, count: 14)
-        for i in 0...14 {
+        for i in 0...13 {
             if (i != 0 && i != 7) {
-                dataList.insert(numberOfStartingBeads, at: i)
+                dataList[i] = numberOfStartingBeads
             }
         }
     }
@@ -25,6 +25,14 @@ class Model {
     
     func get(position: Int) -> Int{
         return dataList[position]
+    }
+    
+    func increment(position: Int) {
+        dataList[position] += 1
+    }
+    
+    func add(position: Int, amount: Int) {
+        dataList[position] += amount
     }
 }
 
