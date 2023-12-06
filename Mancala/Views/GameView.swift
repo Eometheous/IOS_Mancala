@@ -26,7 +26,8 @@ struct GameView: View {
     @State private var pit12 = MancalaGame.sampleGame.beads.get(position: 12)
     @State private var pit13 = MancalaGame.sampleGame.beads.get(position: 13)
     
-    @State private var selected = false
+    @State private var selectIfBGoesFirst = false
+    @State private var selectStartingNumberOfBeads = 2
     
     var body: some View {
         VStack {
@@ -184,17 +185,25 @@ struct GameView: View {
                     .background(Color.pit)
             }
             Spacer()
-            Picker (selection: $selected, label: Text("Who Goes First?")) {
-                Text("Player A First").tag(false).foregroundColor(.font)
-                Text("Player B First").tag(true).foregroundColor(.font)
-            }.foregroundColor(.font)
-                    
-            Button("Start New Game") {
-                game.isPlayerBTurn = selected
-                game.startNewGame()
-                updateView()
+            HStack {
+                Picker (selection: $selectIfBGoesFirst, label: Text("Who Goes First?")) {
+                    Text("Player A First").tag(false)
+                    Text("Player B First").tag(true)
+                }.tint(.font)
+                
+                Picker (selection: $selectStartingNumberOfBeads, label: Text("Starting Number of Beads")) {
+                    Text("2").tag(2)
+                    Text("3").tag(3)
+                    Text("4").tag(4)
+                }.tint(.font)
+                
+                Button("Start New Game") {
+                    game.isPlayerBTurn = selectIfBGoesFirst
+                    game.startNewGame(numberOfStartingBeads: selectStartingNumberOfBeads)
+                    updateView()
+                }
+                .foregroundStyle(Color.font)
             }
-            .foregroundColor(.font)
         }
         .frame(
             minWidth: 0,
@@ -204,6 +213,7 @@ struct GameView: View {
         )
         .padding(20)
         .background(Color.board)
+        .foregroundStyle(Color.font)
     }
     
     func updateView() {

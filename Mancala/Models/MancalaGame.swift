@@ -30,8 +30,8 @@ class MancalaGame {
         }
     }
     
-    func startNewGame() {
-        beads = Model(numberOfStartingBeads: 4)
+    func startNewGame(numberOfStartingBeads: Int) {
+        beads = Model(numberOfStartingBeads: numberOfStartingBeads)
         isGameStarted = true
     }
     
