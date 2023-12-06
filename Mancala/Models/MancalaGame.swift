@@ -24,6 +24,7 @@ class MancalaGame {
         let numberOfBeadsPickedUp = beads.get(position: pit)
         beads.update(position: pit, newValue: 0)
         placeBeadsInPits(startingPit: pit, startingNumOfBeads: numberOfBeadsPickedUp)
+        isPlayerBTurn.toggle()
     }
     
     func placeBeadsInPits(startingPit: Int, startingNumOfBeads: Int) {
@@ -31,32 +32,55 @@ class MancalaGame {
         var numOfBeads = startingNumOfBeads
         
         while numOfBeads > 0 {
-            currentPit+=1
-            if (currentPit == 14) {
+            currentPit += 1
+            if currentPit == PLAYER_B_MANCALA && isPlayerBTurn {
+                beads.increment(position: PLAYER_B_MANCALA)
+                numOfBeads -= 1
+                currentPit += 1
+                if numOfBeads == 0 {
+                    isPlayerBTurn.toggle()
+                }
+            }
+            else if currentPit == 14 {
                 currentPit = 0
+                if !isPlayerBTurn {
+                    beads.increment(position: PLAYER_A_MANCALA)
+                    numOfBeads -= 1
+                    currentPit += 1
+                    if numOfBeads == 0 {
+                        isPlayerBTurn.toggle();
+                    }
+                }
             }
-//            if (currentPit == PLAYER_B_MANCALA && isPlayerBTurn) {
-//                beads.update(position: PLAYER_B_MANCALA, newValue: beads.get(position: PLAYER_B_MANCALA) + 1)
-//                numOfBeads-=1
-//            }
-//            else if (currentPit == PLAYER_A_MANCALA && !isPlayerBTurn) {
-//                beads.update(position: PLAYER_A_MANCALA, newValue: beads.get(position: PLAYER_A_MANCALA) + 1)
-//                numOfBeads-=1
-//            }
-            if (numOfBeads > 0) {
-                beads.update(position: currentPit, newValue: beads.get(position: currentPit) + 1)
+            if numOfBeads > 0 {
+                beads.increment(position: currentPit)
+                numOfBeads -= 1
             }
-            
-            numOfBeads-=1
+        }
+        
+        if beads.get(position: currentPit) == 1 {
+            if (isPlayerBTurn && currentPit < PLAYER_B_MANCALA) || (!isPlayerBTurn && currentPit > PLAYER_B_MANCALA) {
+                stealBeadsFromOtherPlayerAt(currentPit: oppositePitOf(pit: currentPit))
+            }
         }
     }
     
-    func updatePlayersTurn() {
-        isPlayerBTurn = !isPlayerBTurn
+    private func stealBeadsFromOtherPlayerAt(currentPit: Int) {
+        let opponentsBeads = beads.get(position: currentPit) + 1
+        
+        if isPlayerBTurn {
+            beads.add(position: PLAYER_B_MANCALA, amount: opponentsBeads)
+        }
+        else {
+            beads.add(position: PLAYER_A_MANCALA, amount: opponentsBeads)
+        }
+        
+        beads.update(position: currentPit, newValue: 0)
+        beads.update(position: oppositePitOf(pit: currentPit), newValue: 0)
     }
     
-    func setPlayersTurn(playersTurn: Bool) {
-        isPlayerBTurn.toggle()
+    func oppositePitOf(pit: Int) -> Int {
+        return 13 - pit + 1
     }
 }
 
