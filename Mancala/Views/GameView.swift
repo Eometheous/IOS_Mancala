@@ -43,7 +43,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 6) != 0) {
+                            if (game.beads.get(position: 6) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 6)
                                 updateView()
                             }
@@ -53,7 +53,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 8) != 0) {
+                            if (game.beads.get(position: 8) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 8)
                                 updateView()
                             }
@@ -66,7 +66,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 5) != 0) {
+                            if (game.beads.get(position: 5) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 5)
                                 updateView()
                             }
@@ -76,7 +76,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 9) != 0) {
+                            if (game.beads.get(position: 9) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 9)
                                 updateView()
                             }
@@ -89,7 +89,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 4) != 0) {
+                            if (game.beads.get(position: 4) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 4)
                                 updateView()
                             }
@@ -99,7 +99,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 10) != 0) {
+                            if (game.beads.get(position: 10) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 10)
                                 updateView()
                             }
@@ -112,7 +112,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 3) != 0) {
+                            if (game.beads.get(position: 3) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 3)
                                 updateView()
                             }
@@ -122,7 +122,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 11) != 0) {
+                            if (game.beads.get(position: 11) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 11)
                                 updateView()
                             }
@@ -135,7 +135,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 2) != 0) {
+                            if (game.beads.get(position: 2) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 2)
                                 updateView()
                             }
@@ -145,7 +145,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 12) != 0) {
+                            if (game.beads.get(position: 12) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 12)
                                 updateView()
                             }
@@ -158,7 +158,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 1) != 0) {
+                            if (game.beads.get(position: 1) != 0 && game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 1)
                                 updateView()
                             }
@@ -168,7 +168,7 @@ struct GameView: View {
                         .padding(30)
                         .background(Color.pit)
                         .onTapGesture {
-                            if (game.beads.get(position: 13) != 0) {
+                            if (game.beads.get(position: 13) != 0 && !game.isPlayerBTurn) {
                                 game.pickupBeadsAt(pit: 13)
                                 updateView()
                             }
@@ -180,14 +180,13 @@ struct GameView: View {
                     .padding(30)
                     .background(Color.pit)
             }
-            .padding(10)
-            .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity
-            )
         }
+        .frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity
+        )
         .padding(20)
         .background(Color.board)
     }
