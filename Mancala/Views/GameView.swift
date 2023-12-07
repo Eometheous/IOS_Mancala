@@ -10,21 +10,7 @@ import SwiftUI
 struct GameView: View {
     var game: MancalaGame
     
-    // this is very cringe, but it works :/
-    @State private var pit0 = MancalaGame.sampleGame.beads.get(position: 0)
-    @State private var pit1 = MancalaGame.sampleGame.beads.get(position: 1)
-    @State private var pit2 = MancalaGame.sampleGame.beads.get(position: 2)
-    @State private var pit3 = MancalaGame.sampleGame.beads.get(position: 3)
-    @State private var pit4 = MancalaGame.sampleGame.beads.get(position: 4)
-    @State private var pit5 = MancalaGame.sampleGame.beads.get(position: 5)
-    @State private var pit6 = MancalaGame.sampleGame.beads.get(position: 6)
-    @State private var pit7 = MancalaGame.sampleGame.beads.get(position: 7)
-    @State private var pit8 = MancalaGame.sampleGame.beads.get(position: 8)
-    @State private var pit9 = MancalaGame.sampleGame.beads.get(position: 9)
-    @State private var pit10 = MancalaGame.sampleGame.beads.get(position: 10)
-    @State private var pit11 = MancalaGame.sampleGame.beads.get(position: 11)
-    @State private var pit12 = MancalaGame.sampleGame.beads.get(position: 12)
-    @State private var pit13 = MancalaGame.sampleGame.beads.get(position: 13)
+    @State private var pits = Array(repeating: 0, count: 14)
     
     @State private var selectIfBGoesFirst = false
     @State private var selectStartingNumberOfBeads = 2
@@ -40,7 +26,7 @@ struct GameView: View {
             HStack {
                 VStack {
                     Text("B")
-                    Text("\(pit7)")
+                    Text("\(pits[7])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -48,7 +34,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B6")
-                    Text("\(pit6)")
+                    Text("\(pits[6])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -58,7 +44,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit8)")
+                    Text("\(pits[8])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -73,7 +59,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B5")
-                    Text("\(pit5)")
+                    Text("\(pits[5])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -83,7 +69,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit9)")
+                    Text("\(pits[9])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -98,7 +84,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B4")
-                    Text("\(pit4)")
+                    Text("\(pits[4])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -108,7 +94,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit10)")
+                    Text("\(pits[10])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -123,7 +109,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B3")
-                    Text("\(pit3)")
+                    Text("\(pits[3])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -133,7 +119,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit11)")
+                    Text("\(pits[11])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -148,7 +134,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B2")
-                    Text("\(pit2)")
+                    Text("\(pits[2])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -158,7 +144,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit12)")
+                    Text("\(pits[12])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -173,7 +159,7 @@ struct GameView: View {
                 Spacer()
                 VStack {
                     Text("B1")
-                    Text("\(pit1)")
+                    Text("\(pits[1])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -183,7 +169,7 @@ struct GameView: View {
                                 updateView()
                             }
                         }
-                    Text("\(pit13)")
+                    Text("\(pits[13])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -197,7 +183,7 @@ struct GameView: View {
                 }
                 Spacer()
                 VStack {
-                    Text("\(game.beads.get(position: 0))")
+                    Text("\(pits[0])")
                         .font(.largeTitle)
                         .padding(30)
                         .background(theme.pitColor)
@@ -243,20 +229,9 @@ struct GameView: View {
     }
     
     func updateView() {
-        pit0 = game.beads.get(position: 0)
-        pit1 = game.beads.get(position: 1)
-        pit2 = game.beads.get(position: 2)
-        pit3 = game.beads.get(position: 3)
-        pit4 = game.beads.get(position: 4)
-        pit5 = game.beads.get(position: 5)
-        pit6 = game.beads.get(position: 6)
-        pit7 = game.beads.get(position: 7)
-        pit8 = game.beads.get(position: 8)
-        pit9 = game.beads.get(position: 9)
-        pit10 = game.beads.get(position: 10)
-        pit11 = game.beads.get(position: 11)
-        pit12 = game.beads.get(position: 12)
-        pit13 = game.beads.get(position: 13)
+        for i in 0...13 {
+            pits[i] = game.beads.get(position: i)
+        }
     }
 }
 
