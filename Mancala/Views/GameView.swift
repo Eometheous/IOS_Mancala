@@ -38,12 +38,16 @@ struct GameView: View {
                 
                 
             HStack {
-                Text("\(pit7)")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(theme.pitColor)
+                VStack {
+                    Text("B")
+                    Text("\(pit7)")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(theme.pitColor)
+                }
                 Spacer()
                 VStack {
+                    Text("B6")
                     Text("\(pit6)")
                         .font(.largeTitle)
                         .padding(30)
@@ -64,9 +68,11 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A1")
                 }
                 Spacer()
                 VStack {
+                    Text("B5")
                     Text("\(pit5)")
                         .font(.largeTitle)
                         .padding(30)
@@ -87,9 +93,11 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A2")
                 }
                 Spacer()
                 VStack {
+                    Text("B4")
                     Text("\(pit4)")
                         .font(.largeTitle)
                         .padding(30)
@@ -110,9 +118,11 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A3")
                 }
                 Spacer()
                 VStack {
+                    Text("B3")
                     Text("\(pit3)")
                         .font(.largeTitle)
                         .padding(30)
@@ -133,9 +143,11 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A4")
                 }
                 Spacer()
                 VStack {
+                    Text("B2")
                     Text("\(pit2)")
                         .font(.largeTitle)
                         .padding(30)
@@ -156,9 +168,11 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A5")
                 }
                 Spacer()
                 VStack {
+                    Text("B1")
                     Text("\(pit1)")
                         .font(.largeTitle)
                         .padding(30)
@@ -179,15 +193,25 @@ struct GameView: View {
                                 updateView()
                             }
                         }
+                    Text("A6")
                 }
                 Spacer()
-                Text("\(game.beads.get(position: 0))")
-                    .font(.largeTitle)
-                    .padding(30)
-                    .background(theme.pitColor)
+                VStack {
+                    Text("\(game.beads.get(position: 0))")
+                        .font(.largeTitle)
+                        .padding(30)
+                        .background(theme.pitColor)
+                    Text("A")
+                }
             }
             Spacer()
             HStack {
+                Picker (selection: $theme, label: Text("Pick Theme")) {
+                    Text("Default").tag(Theme.defaultBoard)
+                    Text("Kim Board").tag(Theme.kimBoard)
+                    Text("Patriot Board").tag(Theme.patriotBoard)
+                }.tint(theme.fontColor)
+                
                 Picker (selection: $selectIfBGoesFirst, label: Text("Who Goes First?")) {
                     Text("Player A First").tag(false)
                     Text("Player B First").tag(true)
